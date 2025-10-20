@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login com Google</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button { background-color: #4285F4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    .spinner { margin-top: 20px; font-size: 20px; }
+    .error { color: red; margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <h2>Autenticação com Google OAuth</h2>
+  <button id="loginBtn">Entrar com Google</button>
+
+  <div id="feedback" class="spinner" style="display: none;">🔄 Autenticando...</div>
+  <div id="error" class="error"></div>
+
+  <script>
+    const btn = document.getElementById("loginBtn");
+    const feedback = document.getElementById("feedback");
+    const errorMsg = document.getElementById("error");
+
+    btn.addEventListener("click", () => {
+      errorMsg.textContent = "";
+      feedback.style.display = "block";
+
+      // Simula redirecionamento
+      try {
+        window.location.href = "/login";
+      } catch (err) {
+        feedback.style.display = "none";
+        errorMsg.textContent = "Erro na autenticação. Tente novamente.";
+      }
+    });
+  </script>
+</body>
+</html>
